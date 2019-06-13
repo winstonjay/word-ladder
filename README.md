@@ -30,7 +30,7 @@ $ node wordladder-cli.js generate made
 ╠══════╣
 ```
 
-Solve the path between two words. e.g. 'made
+Solve the path between two words. e.g..
 
 ```
 $ node wordladder-cli.js solve made myth
