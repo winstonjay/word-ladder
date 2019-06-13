@@ -19,7 +19,7 @@ Puzzle solving : we need to find
  * @param {number} ladderLength number of words needed in the ladder
  * @returns {string[]} valid ladder or empty array
  */
-function solvePuzzle(start, end, ladderLength = 6) {
+function solve(start, end, ladderLength = 6) {
     if (start === end || !words.has(start) || !words.has(end)) {
         return [];
     }
@@ -77,7 +77,7 @@ each one character different from eachother for a given ladder length.
  * @param {number} ladderLength length of ladder puzzle.
  * @returns {string[]} a new valid word ladder.
  */
-function generatePuzzle(start, ladderLength = 6) {
+function generate(start, ladderLength = 6) {
     let ladder = [start];
     for (let i = 1; i < ladderLength; i++) {
         let w = nextWord(ladder);
@@ -166,8 +166,8 @@ function replaceCharAtIndex(str, i, char) {
 }
 
 module.exports = {
-    generatePuzzle: generatePuzzle,
-    solvePuzzle: solvePuzzle,
+    generate: generate,
+    solve: solve,
     nextWord: nextWord,
     successors: successors,
     randomWord: randomWord,

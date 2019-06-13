@@ -2,6 +2,7 @@ const util = require('util');
 
 const wl = require('./wordladder.js');
 
+// Main entrypoint for command-line interface.
 function cli(args) {
     if (args.length < 1) {
         console.error(`Need args: need at least 1. got = ${args.length}`);
@@ -25,27 +26,28 @@ function cli(args) {
     }
 }
 
+// validate args and call word ladder generate, print results if successful
 function generateLadder(args) {
     let start = validWord(args.length === 1 ? args[0] : wl.randomWord());
-    let puzzle = wl.generatePuzzle(start);
+    let puzzle = wl.generate(start);
     if (puzzle.length === 0) {
         throw new WlError(`Could not find a generate a puzzle for start: ${start}`)
     }
     console.log(fmtGenerated(puzzle));
 }
 
+// validate args and call word ladder solve, print results if successful
 function solveLadder(args) {
     if (args.length < 2) {
         throw new WlError(`Not enough args for solver. got=${args.length} want=2`)
     }
     let [start, end] = [validWord(args[0]), validWord(args[1])];
-    let solution = wl.solvePuzzle(start, end);
+    let solution = wl.solve(start, end);
     if (solution.length === 0) {
         throw new WlError(`Could not find a solution for ${start} to ${end}`)
     }
     console.log(fmtSolution(solution));
 }
-
 
 function validWord(word) {
     if (word.length !== 4) {
