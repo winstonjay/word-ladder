@@ -1,0 +1,14 @@
+{
+  "name": "wordladder",
+  "version": "1.0.0",
+  "description": "Generator and solver for Word Ladder puzzles.",
+  "main": "wordladder.js",
+  "scripts": {
+    "test": "mocha --timeout 10000"
+  },
+  "author": "winston_jay",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^6.1.4"
+  }
+}
